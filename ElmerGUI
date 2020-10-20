@@ -1,0 +1,16 @@
+
+-> To allocate different node:
+
+[]$ salloc
+
+(check which node is available)
+
+[]$ ssh -X cnXX
+
+(cnXX denotes the available node)
+
+-> Run application:
+
+[]$ module purge
+[]$ module load elmer/foss-2018b
+[]$ ElmerGUI
