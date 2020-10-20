@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --export=ALL,LD_PRELOAD=
+#SBATCH --partition=westmere
+#SBATCH -n 32
+#SBATCH -o output.log
+
+module purge
+module load elmer/foss-2018b
+
+N=$SLURM_NTASKS
+
+dir=$(pwd)
+
+echo case.sif > ELMERSOLVER_STARTINFO
+cat ELMERSOLVER_STARTINFO
+ElmerGrid 2 2 $dir -metis $N 3 
+srun -n $N -o output$N.log ElmerSolver_mpi
