@@ -14,4 +14,3 @@
 []$ module purge
 []$ module load elmer/foss-2018b
 []$ ElmerGUI
-
